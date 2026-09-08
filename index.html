@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Football Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Menu -->
+        <div id="mainMenu" class="menu">
+            <h1>⚽ DREAM FOOTBALL GAME</h1>
+            <div class="menu-buttons">
+                <button onclick="startGame()" class="btn-primary">Play Match</button>
+                <button onclick="showTeamBuilder()" class="btn-primary">Build Your Team</button>
+                <button onclick="showPlayers()" class="btn-primary">View Players</button>
+                <button onclick="showLeaderboard()" class="btn-primary">Leaderboard</button>
+            </div>
+        </div>
+
+        <!-- Team Builder -->
+        <div id="teamBuilder" class="menu hidden">
+            <h2>Build Your Team</h2>
+            <div class="team-builder-container">
+                <div class="team-selection">
+                    <h3>Select Your Club</h3>
+                    <div id="clubList" class="club-grid"></div>
+                </div>
+                <div class="team-squad">
+                    <h3>Your Squad (Max 11 Players)</h3>
+                    <div id="squadList" class="squad-list"></div>
+                    <button onclick="saveTeam()" class="btn-primary">Save Team</button>
+                </div>
+            </div>
+            <button onclick="goToMenu()" class="btn-secondary">Back to Menu</button>
+        </div>
+
+        <!-- Player Selection -->
+        <div id="playerSelection" class="menu hidden">
+            <h2>Select Players for Your Team</h2>
+            <div id="playerGrid" class="player-grid"></div>
+            <button onclick="goToMenu()" class="btn-secondary">Back to Menu</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="menu hidden">
+            <div class="game-header">
+                <div class="team-info">
+                    <h3 id="team1Name">Team 1</h3>
+                    <p id="team1Score">0</p>
+                </div>
+                <div class="match-info">
+                    <p id="matchTime">00:00</p>
+                    <p id="possession">Possession: 50%</p>
+                </div>
+                <div class="team-info">
+                    <h3 id="team2Name">Team 2</h3>
+                    <p id="team2Score">0</p>
+                </div>
+            </div>
+
+            <div class="game-field">
+                <canvas id="gameCanvas" width="800" height="500"></canvas>
+            </div>
+
+            <div class="game-controls">
+                <button onclick="shootGoal()" class="btn-action">🎯 SHOOT</button>
+                <button onclick="takePenalty()" class="btn-action">⚽ PENALTY</button>
+                <button onclick="switchPlayer()" class="btn-action">🔄 SWITCH PLAYER</button>
+                <button onclick="pass()" class="btn-action">🎯 PASS</button>
+                <button onclick="endMatch()" class="btn-secondary">End Match</button>
+            </div>
+
+            <div id="gameLog" class="game-log">
+                <h4>Match Events</h4>
+                <div id="eventsList"></div>
+            </div>
+        </div>
+
+        <!-- Leaderboard -->
+        <div id="leaderboard" class="menu hidden">
+            <h2>Leaderboard</h2>
+            <div id="leaderboardList" class="leaderboard-list"></div>
+            <button onclick="goToMenu()" class="btn-secondary">Back to Menu</button>
+        </div>
+    </div>
+
+    <script src="players.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
